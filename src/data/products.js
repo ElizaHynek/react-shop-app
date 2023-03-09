@@ -24,6 +24,19 @@ const productsData = [
       { name: 'L', additionalPrice: 3 },
       { name: 'XL', additionalPrice: 4 }
     ]
+  },
+  {
+    id: 3,
+    name: 'new',
+    title: 'New shirt',
+    basePrice: 32,
+    colors: ['yellow', 'pink', 'purple'],
+    sizes: [
+      { name: 'S', additionalPrice: 0 },
+      { name: 'M', additionalPrice: 3 },
+      { name: 'L', additionalPrice: 6 },
+      { name: 'XL', additionalPrice: 9 }
+    ]
   }
 ];
 
