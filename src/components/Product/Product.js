@@ -1,6 +1,6 @@
 import styles from './Product.module.scss';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import ProductImage from '../ProductImage/ProductImage';
 import ProductOptions from '../ProductOptions/ProductOptions';
 
@@ -12,15 +12,17 @@ const Product = props => {
 
 
 
-  const getPrice = () => {
-    return props.basePrice + currentPrice;
-  }
+  const addPrice = (a, b) => {
+    return a + b;
+  };
+
+  const getPrice = useMemo(() => addPrice(props.basePrice, currentPrice), [props.basePrice, currentPrice]);
 
   const addToCart = () => {
     console.log(' Summary', '\n',
     '===================', '\n',
     'Name: ' + props.title, '\n',
-    'Price: ' + getPrice(), '\n',
+    'Price: ' + getPrice, '\n',
     'Size: ' + currentSize, '\n',
     'Color: ' + currentColor
     );
@@ -32,7 +34,7 @@ const Product = props => {
       <div>
         <header>
           <h2 className={styles.name}>{props.title}</h2>
-          <span className={styles.price}>Price: {getPrice()}$</span>
+          <span className={styles.price}>Price: {getPrice}$</span>
         </header>
         <ProductOptions 
           setCurrentSize={setCurrentSize}
